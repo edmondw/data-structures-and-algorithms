@@ -1,4 +1,4 @@
-package structures;
+package structures.deque;
 
 public class ArrayDeque<E> implements Deque<E> {
 	private static final int CAPACITY = 1000;

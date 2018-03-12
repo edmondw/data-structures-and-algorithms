@@ -1,4 +1,4 @@
-package structures;
+package structures.stack;
 
 public interface Stack<E> {
 	int size();

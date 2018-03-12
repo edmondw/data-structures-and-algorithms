@@ -1,4 +1,4 @@
-package structures;
+package structures.stack;
 
 public class ArrayStack<E> implements Stack<E> {
 	public static final int CAPACITY = 1000;

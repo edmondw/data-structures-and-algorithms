@@ -1,4 +1,4 @@
-package structures;
+package structures.deque;
 
 public interface Deque<E> {
 	int size();

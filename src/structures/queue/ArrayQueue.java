@@ -1,4 +1,4 @@
-package structures;
+package structures.queue;
 
 import com.sun.glass.ui.Size;
 

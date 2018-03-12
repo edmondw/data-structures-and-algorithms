@@ -1,10 +1,11 @@
-package structures;
+package structures.queue;
 
+import java.awt.List;
 import java.util.LinkedList;
 
-public class LinkedListStack<E> implements Stack<E> {
+public class LinkedListQueue<E> implements Queue<E> {
 	LinkedList<E> list = new LinkedList<>();
-	
+
 	@Override
 	public int size() {
 		return list.size();
@@ -12,24 +13,25 @@ public class LinkedListStack<E> implements Stack<E> {
 
 	@Override
 	public boolean isEmpty() {
-		return list.size() == 0;
+		return list.isEmpty();
 	}
 
 	@Override
-	public E pop() {
+	public void enqueue(E e) {
+		list.addLast(e);
+	}
+	
+	@Override
+	public E dequeue() {
+		if (isEmpty()) return null;
 		return list.removeFirst();
 	}
 
 	@Override
-	public void push(E e) {
-		list.addFirst(e);;
+	public E peek() {
+		return list.peek();
 	}
 
-	@Override
-	public E peek() {
-		return list.getFirst();
-	}
-	
 	@Override
 	public void print() {
 		System.out.println("TOP " + list.toString());

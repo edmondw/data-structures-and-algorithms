@@ -1,4 +1,4 @@
-package structures;
+package structures.queue;
 
 public interface Queue<E> {
 	int size();
