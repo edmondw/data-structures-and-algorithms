@@ -1,10 +1,5 @@
 package structures.linkedlist;
 
-
-
-import com.sun.corba.se.impl.orbutil.graph.Node;
-import com.sun.glass.ui.Size;
-
 public class DoublyLinkedListSimple<E> implements LinkedList<E> {
 	private static class Node<E> {
 		private Node<E> prev;
