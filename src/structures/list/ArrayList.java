@@ -1,7 +1,5 @@
 package structures.list;
 
-import com.sun.glass.ui.Size;
-
 public class ArrayList<E> implements List<E> {
 	private static final int CAPACITY = 16;
 	private E[] data;
