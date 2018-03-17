@@ -58,7 +58,14 @@ public class DoublyLinkedList<E> implements LinkedList<E> {
 
 	@Override
 	public E get(int index) {
-		return null;
+		if (index < 0 || index >= size) return null;
+		E element;
+		if (isInLeftHalf(index)) {
+			element = getNodeStartingHead(index).e;
+		} else {
+			element = getNodeStartingTail(index).e;
+		}
+		return element;
 	}
 	
 	private void addBetween(E e, Node<E> predecessor, Node<E> successor) {
@@ -143,22 +150,22 @@ public class DoublyLinkedList<E> implements LinkedList<E> {
 	
 	private Node<E> getNodeStartingHead(int index) {
 		Node<E> iterator = head.next;
-		for (int i = 0; (i < index) && (iterator.next != null); i++) {
+		for (int i = 0; i < index; i++) {
 			iterator = iterator.next;
 		}
 		return iterator;
 	}
-//	0 1 2 3 4
+	
 	private Node<E> getNodeStartingTail(int index) {
 		Node<E> iterator = tail.previous;
-		for (int i = size - 1; (i > index) && (iterator.previous != null); i--) {
+		for (int i = size - 1; i > index; i--) {
 			iterator = iterator.previous;
 		}
 		return iterator;
 	}
 
-	private boolean isValidPosition(int index) {
-		if (index < 0 || index >= size) 
+	private boolean isValidPosition(int position) {
+		if (position < 0 || position >= size) 
 			return false;
 		return true;
 	}
