@@ -27,11 +27,11 @@ public interface PositionalList<E> {
 	/** Inserts element e at the end of the list and returns its new Position. */
 	Position<E> addLast(E e);
 	
-	/** Inserts element e immediately before Position p returns the replaced element. */
-	E addBefore(Position<E> p, E e) throws IllegalArgumentException;
+	/** Inserts element e immediately before Position p returns the new Position. */
+	Position<E> addBefore(Position<E> p, E e) throws IllegalArgumentException;
 	
-	/** Inserts element e immediately after Position p returns the replaced element. */
-	E addAfter(Position<E> p, E e) throws IllegalArgumentException;
+	/** Inserts element e immediately after Position p returns the new Position. */
+	Position<E> addAfter(Position<E> p, E e) throws IllegalArgumentException;
 	
 	/**  Replaces the element stored at Position p and returns the replaced element. */
 	E set(Position<E> p, E e) throws IllegalArgumentException;
