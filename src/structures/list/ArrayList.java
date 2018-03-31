@@ -1,6 +1,33 @@
 package structures.list;
 
+import java.util.Iterator;
+import java.util.NoSuchElementException;
+
 public class ArrayList<E> implements List<E> {
+  private class ArrayIterator implements Iterator<E> {
+    private int j = 0;  // index of the next element
+    private boolean removable = false; // can remove be called at this time?
+    
+    @Override
+    public boolean hasNext() {
+      return j < size;
+    }
+
+    @Override
+    public E next() throws NoSuchElementException {
+      if (j == size) throw new NoSuchElementException("No next element.");
+      removable = true; // this element, which is the previous element, can removed
+      return data[j++];
+    }
+    
+    @Override
+    public void remove() throws IllegalStateException {
+      if (!removable) throw new IllegalStateException("Nothing to remove."); 
+      ArrayList.this.remove(j - 1);
+      j--;               // next element has shifted one to the left
+      removable = false; // do not allow remove again until next is called
+    }
+  }
 	private static final int CAPACITY = 16;
 	private E[] data;
 	private int size = 0;
@@ -52,6 +79,7 @@ public class ArrayList<E> implements List<E> {
 		checkIndex(i, size + 1); 
 		if (size == data.length)
 			resize(2 * data.length);
+		// k = size - 1 because size already behind by -1 so there is no need to say -2.
 		for (int k = size - 1; k >= i; k--) {
 			data[k + 1] = data[k];
 		}
