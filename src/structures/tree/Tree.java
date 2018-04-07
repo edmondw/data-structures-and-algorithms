@@ -1,5 +1,7 @@
 package structures.tree;
 
+import java.util.Iterator;
+
 import structures.list.Position;
 
 public interface Tree<E> extends Iterable<E> {
@@ -18,7 +20,7 @@ public interface Tree<E> extends Iterable<E> {
   /** Returns true if position p is an external(leaf: having no children) node. */
   boolean isExternal(Position<E>  p) throws IllegalArgumentException;
   
-  /** Returns true if position p is an internal node (having 1 more children). */
+  /** Returns true if position p is an internal node (having more than 1 children). */
   boolean isInternal(Position<E> p) throws IllegalArgumentException;
   
   /** Returns true if position p is the root of the tree. */
