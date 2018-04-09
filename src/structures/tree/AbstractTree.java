@@ -33,4 +33,11 @@ public abstract class AbstractTree<E> implements Tree<E> {
     }
     return h;
   }
+  
+  public int badHeight(Position<E> p) {
+    int h = 0;
+    for (Position<E> p : positions()) {
+      
+    }
+  }
 }
