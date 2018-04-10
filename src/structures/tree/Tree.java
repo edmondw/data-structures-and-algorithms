@@ -36,7 +36,7 @@ public interface Tree<E> extends Iterable<E> {
   Iterator<E> iterator();
   
   /** Returns an iterable collection of all positions of the tree. */
-  Iterable<Position<E>> position(); 
+  Iterable<Position<E>> positions(); 
   
   
 }
