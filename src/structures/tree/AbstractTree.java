@@ -34,10 +34,14 @@ public abstract class AbstractTree<E> implements Tree<E> {
     return h;
   }
   
-  public int badHeight(Position<E> p) {
+  public int badHeight() {
     int h = 0;
     for (Position<E> p : positions()) {
-      
+      // Must be a leaf because internal node indicates children which indicates more depth.
+      if (isExternal(p)) {
+        h = Math.max(h, depth(p));
+      }
     }
+    return h;
   }
 }
